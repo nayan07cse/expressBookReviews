@@ -91,11 +91,7 @@ regd_users.delete("/auth/review/:isbn", (req, res) => {
     if (existingReview) {
       delete validBook.reviews[username];
     }
-    return res
-      .status(200)
-      .send(
-        `Review from User, ${username} removed successfully from Book (ISBN: ${isbn}).`
-      );
+    return res.status(200).json({ message: `Review for ISBN ${isbn} deleted` });
   } else {
     return res.status(404).json({ message: "Provided book does not exist" });
   }
