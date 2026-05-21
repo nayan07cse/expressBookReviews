@@ -46,6 +46,7 @@ The project also demonstrates asynchronous Node.js workflows by retrieving book 
 ├── .github/
 │   └── workflows/
 │       └── node-ci.yml
+│       └── publish-package.yml
 ├── express-book-reviews/
 │   ├── index.js
 │   ├── package.json
@@ -216,6 +217,31 @@ The workflow runs on:
 
 The workflow installs dependencies, runs syntax checks, starts the API server, and smoke tests the main public endpoints.
 
+## GitHub Packages
+
+This repository is configured to publish the API as a GitHub Packages npm package:
+
+```text
+@nayan07cse/express-book-reviews
+```
+
+Package publishing is handled by `.github/workflows/publish-package.yml`.
+
+The publish workflow runs on:
+
+- Published GitHub releases
+- Manual runs from the GitHub Actions tab
+
+The workflow installs dependencies, runs checks, and publishes the package to:
+
+```text
+https://npm.pkg.github.com
+```
+
+Each package version can only be published once. To publish a new version, update the `version` field in `express-book-reviews/package.json`, commit the change, and run the publish workflow again.
+
+After the first successful publish, the package appears in the GitHub repository sidebar under **Packages**.
+
 ## Data Storage
 
 This project uses in-memory data:
@@ -249,4 +275,8 @@ npm install
 npm start
 ```
 
-The package is not published to npm by default.
+The package is configured for GitHub Packages, not the public npm registry.
+
+## License
+
+This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.

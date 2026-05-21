@@ -1,5 +1,5 @@
 {
-  "name": "express-book-reviews",
+  "name": "@nayan07cse/express-book-reviews",
   "version": "1.0.1",
   "description": "Express book review API for registering users, logging in, and managing book reviews.",
   "main": "index.js",
@@ -18,6 +18,20 @@
   ],
   "author": "nayan07cse",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nayan07cse/expressBookReviews.git",
+    "directory": "express-book-reviews"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "files": [
+    "index.js",
+    "router",
+    "README.md",
+    "package.json"
+  ],
   "engines": {
     "node": ">=18"
   },
