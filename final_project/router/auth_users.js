@@ -66,9 +66,13 @@ regd_users.put("/auth/review/:isbn", (req, res) => {
     const existingReview = reviews[username];
     reviews[username] = review;
     if (existingReview) {
-      return res.status(200).send("Review successfully updated");
+      return res
+        .status(200)
+        .json({ message: "Review successfully updated", reviews: reviews });
     } else {
-      return res.status(200).send("Review successfully added");
+      return res
+        .status(200)
+        .json({ message: "Review successfully added", reviews: reviews });
     }
   } else {
     return res.status(404).json({ message: "Provided book does not exist" });
